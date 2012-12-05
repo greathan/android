@@ -3,11 +3,13 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
+			  android:gravity="center|center_horizontal|center_vertical"
         >
 	<ProgressBar
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop=""/>
+	        style="?android:attr/progressBarStyleLarge"
+			/>
     <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
