@@ -1,6 +1,7 @@
 package com.example.android;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.AsyncTask;
 import android.net.http.AndroidHttpClient;
@@ -24,6 +25,7 @@ public class MyActivity extends Activity {
 
 	private LinearLayout mLoading;
 	private Button mButton;
+    private Button mButtonSensor;
 	private TextView mTxt;
 	private EditText mEdit;
 
@@ -36,6 +38,7 @@ public class MyActivity extends Activity {
         setContentView(R.layout.main);
 		mLoading = (LinearLayout) findViewById(R.id.loading);
 	    mButton = (Button) findViewById(R.id.button);
+        mButtonSensor = (Button) findViewById(R.id.sensor);
 	    mTxt = (TextView) findViewById(R.id.txt);
 	    mEdit = (EditText) findViewById(R.id.edit);
 
@@ -50,6 +53,15 @@ public class MyActivity extends Activity {
 			    }
 		    }
 	    });
+
+        mButtonSensor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), SensorActivity.class);
+                startActivity(intent);
+            }
+
+        });
     }
 
 	private void setData(JSONObject jo) {
