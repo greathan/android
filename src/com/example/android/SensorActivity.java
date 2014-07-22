@@ -9,6 +9,8 @@ import android.hardware.Sensor;
 import android.os.Bundle;
 import android.content.Context;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by greathan on 13-11-29.
  */
@@ -53,7 +55,7 @@ public class SensorActivity extends Activity implements SensorEventListener {
             // Do something with this sensor data.
             tv.setText(String.valueOf(v1) + "mPa");
         } else if (type == Sensor.TYPE_LIGHT) {
-            tvLight.setText(String.valueOf(v1) + "lux");
+            tvLight.setText(new DecimalFormat("#.0").format(v1) + "lux");
         } else if (type == Sensor.TYPE_AMBIENT_TEMPERATURE) {
             tvTemp.setText(String.valueOf(v1) + "°C");
         }
@@ -65,6 +67,7 @@ public class SensorActivity extends Activity implements SensorEventListener {
         super.onResume();
         mSensorManager.registerListener(this, mPressure, SensorManager.SENSOR_DELAY_NORMAL);
         mSensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mTemp, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
